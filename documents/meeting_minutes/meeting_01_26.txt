@@ -1,7 +1,8 @@
-Date : 01/25/2024
-Time : 8:30 - 9:10 PM
-Location : Google Meet (virtual)
-Attendees :
+Date: 01/25/2024
+Time: 8:30 - 9:10 PM
+Location: Google Meet (virtual)
+
+Attendees:
 1) Sameera
 2) Varsha
 3) Nikhil
@@ -11,16 +12,16 @@ Attendees :
 7) Varun
 8) Bindu
 
-Agenda :
+Agenda:
 - Introductions
 - Getting to know who are strong in what
 - Project praposal discussion
 
-Meeting summary :
+Meeting summary:
   We got to know each other a little more and also gained the knowledge on who are strong on what things and what we have in common to work.
   And we dedited two project praposals
 
-Next meeting Agenda :
+Next meeting Agenda:
 - Decide what technologies to use
 - Structure of the project
 
