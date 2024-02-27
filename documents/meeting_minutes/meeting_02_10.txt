@@ -20,7 +20,6 @@ Meeting summary:
   The team engaged in a thorough requirement gathering session, identifying critical user needs and project specifications. Following this, a competitor analysis was conducted to benchmark against market leaders and identify unique value propositions for our project. Insights from this discussion will guide the development process, ensuring our project meets user expectations and stands out in the market.
 
 Next meeting Agenda:
-- Design phase initiation
-- Assigning tasks for design and development
+Elicitation workshop with our partnered team (CodePioneers)
 
 Meeting Duration: 55 Minutes
