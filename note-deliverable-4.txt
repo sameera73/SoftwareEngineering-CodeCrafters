@@ -1,0 +1,14 @@
+/documents
+  /deliverable_4
+    CodeCrafters-deliverable-4.docx
+  /source
+    /inventory-management-SERVER
+	    *Updated files required for the server*
+    /inventory-management-UI
+	    *Updated files required for the UI*
+  /meeting_minutes
+    Meeting_03_19.txt
+    meeting_03_24.txt
+    meeting_03_31.txt
+    meeting_04_05.txt
+    meeting_04_08.txt
