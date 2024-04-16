@@ -13,7 +13,7 @@ router.post("/login", (req, res) => {
       return res.status(500).send("Error on the server.");
     }
     if (!user) {
-      return res.status(404).send("User not found.");
+      return res.status(404).send({ message: "User not found." });
     }
 
     const passwordIsValid = bcrypt.compareSync(password, user.password);

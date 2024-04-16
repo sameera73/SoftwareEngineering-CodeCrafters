@@ -8,6 +8,9 @@ import PeopleIcon from "@mui/icons-material/People";
 import StorefrontIcon from "@mui/icons-material/Storefront";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import Inventory2Icon from "@mui/icons-material/Inventory2";
+import AssignmentIcon from "@mui/icons-material/Assignment";
+import ReceiptIcon from "@mui/icons-material/Receipt";
+import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
 import Button from "@mui/material/Button";
 import RouteAR from "../routes/RouteAR";
 
@@ -22,6 +25,10 @@ const Layout = () => {
     { text: "Items", icon: <Inventory2Icon />, path: "/items" },
     { text: "Customers", icon: <PeopleIcon />, path: "/customers" },
     { text: "Vendors", icon: <StorefrontIcon />, path: "/vendors" },
+    { text: "Sales Orders", icon: <AssignmentIcon />, path: "/sales-orders" },
+    { text: "Invoices", icon: <ReceiptIcon />, path: "/invoices" },
+    { text: "Purchase Orders", icon: <AssignmentIcon />, path: "/purchase-orders" },
+    { text: "Bills", icon: <AccountBalanceIcon />, path: "/bills" },
   ];
 
   const handleLogout = () => {

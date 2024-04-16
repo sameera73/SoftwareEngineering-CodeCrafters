@@ -25,7 +25,6 @@ const Create = () => {
 
   const handleCreate = async (e) => {
     e.preventDefault();
-    setError("");
 
     try {
       const response = await api.post("/user/createUserAndOrganization", {
@@ -39,9 +38,15 @@ const Create = () => {
         navigate("/login");
       } else {
         setError("Create failed. Please try again.");
+        setTimeout(() => {
+          setError("");
+        }, 5000);
       }
     } catch (error) {
-      setError(error.response?.data?.message || "An error occurred. Please try again.");
+      setError(error.response?.data?.message || "Email is already registred");
+      setTimeout(() => {
+        setError("");
+      }, 5000);
       console.error("An error occurred:", error);
     }
   };
@@ -134,7 +139,21 @@ const Create = () => {
               ),
             }}
           />
-          {error && <Alert severity="error">{error}</Alert>}
+          {error && (
+            <Alert
+              severity="error"
+              style={{
+                position: "fixed",
+                top: "50px",
+                left: "50%",
+                transform: "translateX(-50%)",
+                width: "fit-content",
+                boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.2)",
+              }}
+            >
+              {error}
+            </Alert>
+          )}
           <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }} startIcon={<PersonAddIcon />}>
             Sign Up
           </Button>

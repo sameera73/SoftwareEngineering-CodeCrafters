@@ -1,2 +1,2 @@
-* npm i
-* HOST=0.0.0.0 npm run
+- npm i
+- HOST=0.0.0.0 npm start

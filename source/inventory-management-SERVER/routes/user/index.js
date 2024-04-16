@@ -53,6 +53,62 @@ const createOrganizationDatabase = (organizationId) => {
           previous_orders INTEGER,
           notes TEXT
         );`,
+        `CREATE TABLE IF NOT EXISTS sales_orders (
+          id INTEGER PRIMARY KEY AUTOINCREMENT,
+          customer_id INTEGER NOT NULL,
+          order_date DATETIME DEFAULT CURRENT_TIMESTAMP,
+          status TEXT CHECK( status IN ('Pending','Completed','Cancelled') ) NOT NULL DEFAULT 'Pending',
+          notes TEXT,
+          FOREIGN KEY (customer_id) REFERENCES customers(id)
+        );`,
+        `CREATE TABLE IF NOT EXISTS purchase_orders (
+          id INTEGER PRIMARY KEY AUTOINCREMENT,
+          vendor_id INTEGER NOT NULL,
+          order_date DATETIME DEFAULT CURRENT_TIMESTAMP,
+          status TEXT CHECK( status IN ('Pending','Completed','Cancelled') ) NOT NULL DEFAULT 'Pending',
+          notes TEXT,
+          FOREIGN KEY (vendor_id) REFERENCES vendors(id)
+        );`,
+        `CREATE TABLE IF NOT EXISTS sales_orders_items (
+          sales_order_id INTEGER NOT NULL,
+          item_id INTEGER NOT NULL,
+          quantity INTEGER NOT NULL,
+          price_at_sale REAL NOT NULL,
+          PRIMARY KEY (sales_order_id, item_id),
+          FOREIGN KEY (sales_order_id) REFERENCES sales_orders(id),
+          FOREIGN KEY (item_id) REFERENCES items(id)
+        );`,
+        `CREATE TABLE IF NOT EXISTS purchase_orders_items (
+          purchase_order_id INTEGER NOT NULL,
+          item_id INTEGER NOT NULL,
+          quantity INTEGER NOT NULL,
+          price_at_purchase REAL NOT NULL,
+          PRIMARY KEY (purchase_order_id, item_id),
+          FOREIGN KEY (purchase_order_id) REFERENCES purchase_orders(id),
+          FOREIGN KEY (item_id) REFERENCES items(id)
+        );`,
+        `CREATE TABLE IF NOT EXISTS bills (
+          id INTEGER PRIMARY KEY AUTOINCREMENT,
+          vendor_id INTEGER NOT NULL,
+          purchase_order_id INTEGER,
+          bill_date DATETIME DEFAULT CURRENT_TIMESTAMP,
+          amount_due REAL NOT NULL,
+          status TEXT CHECK( status IN ('Pending','Paid') ) NOT NULL DEFAULT 'Pending',
+          notes TEXT,
+          FOREIGN KEY (vendor_id) REFERENCES vendors(id),
+          FOREIGN KEY (purchase_order_id) REFERENCES purchase_orders(id)
+        );`,
+        `CREATE TABLE IF NOT EXISTS invoices (
+          id INTEGER PRIMARY KEY AUTOINCREMENT,
+          customer_id INTEGER NOT NULL,
+          sales_order_id INTEGER,
+          invoice_date DATETIME DEFAULT CURRENT_TIMESTAMP,
+          amount_due REAL NOT NULL,
+          status TEXT CHECK( status IN ('Pending','Paid') ) NOT NULL DEFAULT 'Pending',
+          notes TEXT,
+          FOREIGN KEY (customer_id) REFERENCES customers(id),
+          FOREIGN KEY (sales_order_id) REFERENCES sales_orders(id)
+        );`,
         // Add more tables as needed
       ];
 

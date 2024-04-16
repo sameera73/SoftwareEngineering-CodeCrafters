@@ -11,10 +11,12 @@ import EmailIcon from "@mui/icons-material/Email";
 import LockIcon from "@mui/icons-material/Lock";
 import LoginIcon from "@mui/icons-material/Login";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
+import Alert from "@mui/material/Alert";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
@@ -25,16 +27,17 @@ const Login = () => {
         email,
         password,
       });
-
       if (response.status === 200) {
         const { token } = response.data;
         localStorage.setItem("token", token);
         navigate("/");
-      } else {
-        console.error("Login failed");
       }
     } catch (error) {
-      console.error("An error occurred:", error);
+      if (error.response.status === 401) {
+        setError("Login failed. Please check your credentials and try again.");
+      } else {
+        setError(error.response.data.message);
+      }
     }
   };
 
@@ -51,6 +54,21 @@ const Login = () => {
         <Typography component="h1" variant="h5">
           Login
         </Typography>
+        {error && (
+          <Alert
+            severity="error"
+            style={{
+              position: "fixed",
+              top: "50px",
+              left: "50%",
+              transform: "translateX(-50%)",
+              width: "fit-content",
+              boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.2)",
+            }}
+          >
+            {error}
+          </Alert>
+        )}
         <Box component="form" onSubmit={handleLogin} noValidate sx={{ mt: 1 }}>
           <TextField
             variant="outlined"

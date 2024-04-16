@@ -14,8 +14,8 @@ function NewCustomerDialog({ open, fields, onClose, onCustomerCreate }) {
         previous_orders: 0,
         notes: newCustomer.notes,
       });
-      newCustomer.previous_orders = 0;
       newCustomer.id = response.data.id;
+      newCustomer.previous_orders = 0;
       onCustomerCreate(newCustomer);
     } catch (error) {
       console.error("An error occurred while creating the customer", error);

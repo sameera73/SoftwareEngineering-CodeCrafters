@@ -1,6 +1,7 @@
 const sqlite3 = require("sqlite3").verbose();
 const path = require("path");
 
+// Specify the path to the SQLite file. You can change "database.sqlite" to your desired file name.
 const dbPath = path.resolve(__dirname, "main.sqlite");
 
 // Database initialization with file storage
@@ -46,6 +47,7 @@ const getDatabaseInstance = (name, mainPath = "org/") => {
       throw err;
     }
   });
+  orgDB.exec("PRAGMA foreign_keys = ON;");
   return orgDB;
 };
 

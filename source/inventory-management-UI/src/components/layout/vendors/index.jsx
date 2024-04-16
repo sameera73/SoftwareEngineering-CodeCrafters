@@ -4,6 +4,7 @@ import { Box, Button } from "@mui/material";
 import DataTable from "../DataTable";
 import EditVendorDialog from "./edit";
 import NewVendorDialog from "./new";
+import Alert from "@mui/material/Alert";
 
 const Vendors = () => {
   const tableRef = useRef();
@@ -13,6 +14,7 @@ const Vendors = () => {
   const [isEditDialogOpen, setIsEditDialogOpen] = useState(false);
   const [isNewDialogOpen, setIsNewDialogOpen] = useState(false);
   const [currentVendorId, setCurrentVendorId] = useState(null);
+  const [error, setError] = useState("");
 
   const columns = [
     { id: "id", label: "ID", sortable: false },
@@ -60,6 +62,7 @@ const Vendors = () => {
       setVendors(vendors.filter((vendor) => vendor.id !== id));
     } catch (error) {
       console.error("Error deleting vendor:", error);
+      setError("Failed to delete vendor. Referenced in another module.");
     }
   };
 
@@ -80,6 +83,7 @@ const Vendors = () => {
       } catch (error) {
         console.error("Error fetching vendors:", error);
         setLoading(false);
+        setError("Failed to fetch vendors. Please try again later.");
       }
     };
 
@@ -88,11 +92,27 @@ const Vendors = () => {
 
   return (
     <Box sx={{ position: "relative", width: "100%", height: "100%" }}>
+      {error && (
+        <Alert
+          severity="error"
+          style={{
+            position: "fixed",
+            top: "50px",
+            left: "50%",
+            transform: "translateX(-50%)",
+            width: "fit-content",
+            boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.2)",
+          }}
+        >
+          {error}
+        </Alert>
+      )}
       <Box position="absolute" top={0} right={0} mt={2}>
         <Button variant="contained" color="primary" onClick={() => newAction()}>
           Add New Vendor
         </Button>
       </Box>
+      <h2>Vendors</h2>
       <DataTable
         ref={tableRef}
         loading={loading}
