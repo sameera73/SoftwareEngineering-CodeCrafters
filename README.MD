@@ -5,7 +5,7 @@
         └── 📁deliverable_1             -> Deliverable one
         └── 📁deliverable_2             -> Deliverable two
         └── 📁deliverable_3             -> Deliverable three
-        └── 📁deliverable_4             -> Deliverable four
+        └── 📁deliverable_4             -> Deliverable three
         └── 📁meeting_minutes           -> Has all meeting minutes
     └── 📁reports                       -> Contatins Project Reports
     └── 📁source                        -> Project source code
