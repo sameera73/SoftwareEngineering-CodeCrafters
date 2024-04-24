@@ -1,9 +1,0 @@
-/documents
-  /deliverable_2
-    CodeCrafters-deliverable-2.docx
-  /meeting_minutes
-    meeting_02_10.txt
-    meeting_02_13.txt
-    meeting_02_14.txt
-    meeting_02_20.txt
-    meeting_02_24.txt
