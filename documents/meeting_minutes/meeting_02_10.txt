@@ -1,0 +1,25 @@
+Date: 02/10/2024
+Time: 8:50 - 9:45 PM
+Location: Google Meet (virtual)
+
+Attendees:
+1) Sameera
+2) Varsha
+3) Nikhil
+4) Shivani
+5) Jaswanth
+6) Manogna
+7) Varun
+8) Bindu
+
+Agenda:
+- Requirement gathering
+- Competitor analysis
+
+Meeting summary:
+  The team engaged in a thorough requirement gathering session, identifying critical user needs and project specifications. Following this, a competitor analysis was conducted to benchmark against market leaders and identify unique value propositions for our project. Insights from this discussion will guide the development process, ensuring our project meets user expectations and stands out in the market.
+
+Next meeting Agenda:
+Elicitation workshop with our partnered team (CodePioneers)
+
+Meeting Duration: 55 Minutes

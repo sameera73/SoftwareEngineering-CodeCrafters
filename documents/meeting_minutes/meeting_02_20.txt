@@ -1,0 +1,27 @@
+Date: 02/20/2024
+Time: 9:15 - 10:00 PM
+Location: Google Meet (virtual)
+
+Attendees:
+1) Sameera
+2) Varsha
+3) Nikhil
+4) Shivani
+5) Jaswanth
+6) Manogna
+7) Varun
+8) Bindu
+
+Agenda:
+- Progress review on design and development
+- Addressing potential roadblocks
+
+Meeting summary:
+  The session focused on reviewing the progress made in the design and development phases. Team members shared updates on their assigned tasks, highlighting achievements and discussing challenges faced. The meeting facilitated a collaborative problem-solving session to address identified roadblocks, ensuring the project stays on track.
+
+Next meeting Agenda:
+- Finalizing design elements
+- Preparation for development phase
+- discussion on finishing up to deleveriable 2
+
+Meeting Duration: 45 Minutes
