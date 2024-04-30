@@ -18,10 +18,10 @@ router.get("/bin-locations", (req, res) => {
 
 // POST: Create a new item location
 router.post("/bin-locations", (req, res) => {
-  const { orgId, item_id, warehouse_id, bin_location } = req.body;
+  const { orgId, item_id, warehouse_id, bin_location, stock } = req.body;
   const db = getDatabaseInstance(orgId);
-  const sql = "INSERT INTO item_locations (item_id, warehouse_id, bin_location) VALUES (?, ?, ?)";
-  const params = [item_id, warehouse_id, bin_location];
+  const sql = "INSERT INTO item_locations (item_id, warehouse_id, bin_location, stock) VALUES (?, ?, ?, ?)";
+  const params = [item_id, warehouse_id, bin_location, stock];
   db.run(sql, params, function (err) {
     if (err) {
       res.status(400).json({ error: err.message });
@@ -37,14 +37,15 @@ router.post("/bin-locations", (req, res) => {
 // PUT: Update an item location
 router.put("/bin-locations/:id", (req, res) => {
   const { id } = req.params;
-  const { orgId, item_id, warehouse_id, bin_location } = req.body;
+  const { orgId, item_id, warehouse_id, bin_location, stock } = req.body;
   const db = getDatabaseInstance(orgId);
   const sql = `
     UPDATE item_locations
-    SET bin_location = ?
+    SET bin_location = ?,
+    stock = ?
     WHERE id = ?
   `;
-  const params = [bin_location, id];
+  const params = [bin_location, stock, id];
   db.run(sql, params, function (err) {
     if (err) {
       res.status(400).json({ error: err.message });

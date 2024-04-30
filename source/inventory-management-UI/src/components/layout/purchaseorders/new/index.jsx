@@ -25,6 +25,7 @@ function NewPurchaseOrder({ open, onClose, onCreate }) {
     notes: "",
     items: [{ item_id: "", quantity: "", price_at_purchase: "" }],
   };
+
   const [purchaseOrder, setPurchaseOrder] = useState(initialPurchaseOrderState);
   const [availableItems, setAvailableItems] = useState([]);
   const [vendors, setVendors] = useState([]);
@@ -57,14 +58,6 @@ function NewPurchaseOrder({ open, onClose, onCreate }) {
   const handleItemChange = (index, field, value) => {
     const newItems = [...purchaseOrder.items];
     newItems[index][field] = value;
-
-    if (field === "item_id") {
-      const selectedItem = availableItems.find((item) => item.id === value);
-      if (selectedItem) {
-        newItems[index]["price_at_purchase"] = selectedItem.price;
-      }
-    }
-
     setPurchaseOrder((prevState) => ({
       ...prevState,
       items: newItems,
@@ -74,7 +67,7 @@ function NewPurchaseOrder({ open, onClose, onCreate }) {
   const handleAddItem = () => {
     setPurchaseOrder((prevState) => ({
       ...prevState,
-      items: [...prevState.items, { item_id: "", quantity: "" }],
+      items: [...prevState.items, { item_id: "", quantity: "", price_at_purchase: "" }],
     }));
   };
 
@@ -146,10 +139,10 @@ function NewPurchaseOrder({ open, onClose, onCreate }) {
         {purchaseOrder.items.map((item, index) => (
           <div key={index} style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "10px" }}>
             <FormControl fullWidth>
-              <InputLabel id="item-select-label">{`Item #${index + 1}`}</InputLabel>
+              <InputLabel id={`item-select-label-${index}`}>{`Item #${index + 1}`}</InputLabel>
               <Select
                 value={item.item_id}
-                labelId="item-select-label"
+                labelId={`item-select-label-${index}`}
                 label={`Item #${index + 1}`}
                 onChange={(e) => handleItemChange(index, "item_id", e.target.value)}
               >
@@ -158,7 +151,7 @@ function NewPurchaseOrder({ open, onClose, onCreate }) {
                 </MenuItem>
                 {availableItems.map((availableItem) => (
                   <MenuItem key={availableItem.id} value={availableItem.id}>
-                    {`${availableItem.name} - $${availableItem.price}`}
+                    {availableItem.name}
                   </MenuItem>
                 ))}
               </Select>
@@ -168,6 +161,13 @@ function NewPurchaseOrder({ open, onClose, onCreate }) {
               label="Quantity"
               value={item.quantity}
               onChange={(e) => handleItemChange(index, "quantity", e.target.value)}
+              variant="outlined"
+            />
+            <TextField
+              type="number"
+              label="Price"
+              value={item.price_at_purchase}
+              onChange={(e) => handleItemChange(index, "price_at_purchase", e.target.value)}
               variant="outlined"
             />
             {index > 0 && (

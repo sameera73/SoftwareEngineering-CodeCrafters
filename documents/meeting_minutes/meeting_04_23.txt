@@ -1,0 +1,29 @@
+Time: 12:00 - 02:30 PM
+Location: Zoom Meet (virtual)
+
+Attendees:
+
+Sameera
+Varsha
+Nikhil
+Shivani
+Jaswanth
+Manogna
+Varun
+Bindu
+
+Agenda:
+
+Finish the development of the warehouse
+Start the initial work on the bin locations
+Finish the work on the dashboard
+Review the application so far.
+Summary: 
+plan on developing bin locations. Dashboard and warehouse development are done.
+Next Steps:
+
+Finish the development of the bin locations
+Wind up the project and finish the final documentations and user manual.
+Submit the deliverable Five
+
+Duration: 2.5 hours

@@ -4,7 +4,7 @@ import api from "../../../../services/axiosConfig";
 import PropTypes from "prop-types";
 
 function NewBinLocationDialog({ open, onClose, items, warehouses, onBinLocationCreate }) {
-  const [newLocation, setNewLocation] = useState({ item_id: "", warehouse_id: "", bin_location: "" });
+  const [newLocation, setNewLocation] = useState({ item_id: "", warehouse_id: "", bin_location: "", stock: 0 });
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -17,6 +17,7 @@ function NewBinLocationDialog({ open, onClose, items, warehouses, onBinLocationC
         item_id: newLocation.item_id,
         warehouse_id: newLocation.warehouse_id,
         bin_location: newLocation.bin_location,
+        stock: newLocation.stock,
       });
 
       const item = items.find((i) => i.id === newLocation.item_id);
@@ -69,6 +70,7 @@ function NewBinLocationDialog({ open, onClose, items, warehouses, onBinLocationC
           fullWidth
           margin="dense"
         />
+        <TextField label="Stock" type="number" value={newLocation.stock} onChange={handleChange} name="stock" fullWidth margin="dense" />
       </DialogContent>
       <DialogActions>
         <Button onClick={onClose}>Cancel</Button>

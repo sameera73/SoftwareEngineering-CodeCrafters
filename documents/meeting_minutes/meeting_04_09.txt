@@ -1,0 +1,28 @@
+Time: 12:00 - 02:30 PM
+Location: Zoom Meet (virtual)
+
+Attendees:
+
+Sameera
+Varsha
+Nikhil
+Shivani
+Jaswanth
+Manogna
+Varun
+Bindu
+
+Agenda:
+
+Finalize the next steps for the final deliverables
+Discuss the necessary documentation for the final deliverables
+Discuss what went wrong and what went right.
+Summary:
+We have discussed about how to dodo deliverable 5. We have done all the planning work for the deliverable.
+
+Next Steps:
+
+Start warehouse module code
+Start the initial work on the dash board.
+
+Duration: 55 minutes

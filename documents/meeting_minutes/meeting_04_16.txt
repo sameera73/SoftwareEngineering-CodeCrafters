@@ -1,0 +1,29 @@
+Time: 12:00 - 02:30 PM
+Location: Zoom Meet (virtual)
+
+Attendees:
+
+Sameera
+Varsha
+Nikhil
+Shivani
+Jaswanth
+Manogna
+Varun
+Bindu
+
+Agenda:
+
+Start warehouse module code.
+Start the initial work on the dash board.
+Review the application so far.
+Summary: 
+
+coded warehouse. worked on dashboard.
+Next Steps:
+
+Finish the development of the warehouse
+Start the initial work on the bin locations
+Finish the work on the dashboard
+
+Duration: 2.5 hours

@@ -18,8 +18,8 @@ router.get("/stats", (req, res) => {
       (SELECT AVG(price) FROM items) AS average_item_price,
       (SELECT AVG(amount_due) FROM invoices WHERE status = 'Paid') AS average_invoice_amount,
       (SELECT AVG(amount_due) FROM bills WHERE status = 'Paid') AS average_bill_amount,
-      (SELECT SUM(price_at_sale * quantity) FROM sales_orders_items) - 
-      (SELECT SUM(price_at_purchase * quantity) FROM purchase_orders_items) AS total_profit,
+      MAX(0, (COALESCE((SELECT SUM(amount_due) FROM invoices WHERE status = 'Paid'), 0) - 
+      COALESCE((SELECT SUM(amount_due) FROM bills WHERE status = 'Paid'), 0))) AS total_profit,
       (SELECT COUNT(*) FROM sales_orders WHERE status <> 'Completed') AS incomplete_sales_orders,
       (SELECT COUNT(*) FROM purchase_orders WHERE status <> 'Completed') AS incomplete_purchase_orders,
       (SELECT SUM(amount_due) FROM invoices WHERE status = 'Paid') AS total_amount_paid,

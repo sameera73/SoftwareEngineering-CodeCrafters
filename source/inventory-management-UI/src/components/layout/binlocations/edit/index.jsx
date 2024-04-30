@@ -4,7 +4,7 @@ import api from "../../../../services/axiosConfig";
 import PropTypes from "prop-types";
 
 function EditBinLocationDialog({ open, onClose, binLocationId, binLocations, items, warehouses, onBinLocationUpdate }) {
-  const [binLocation, setBinLocation] = useState({ item_id: "", warehouse_id: "", bin_location: "" });
+  const [binLocation, setBinLocation] = useState({ item_id: "", warehouse_id: "", bin_location: "", stock: 0 });
 
   useEffect(() => {
     if (open) {
@@ -65,6 +65,7 @@ function EditBinLocationDialog({ open, onClose, binLocationId, binLocations, ite
           fullWidth
           margin="dense"
         />
+        <TextField label="Stock" type="number" value={binLocation.stock} onChange={handleChange} name="stock" fullWidth margin="dense" />
       </DialogContent>
       <DialogActions>
         <Button onClick={onClose}>Cancel</Button>

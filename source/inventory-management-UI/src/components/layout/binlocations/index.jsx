@@ -23,6 +23,7 @@ const BinLocations = () => {
     { id: "itemName", label: "Item", sortable: true },
     { id: "warehouseName", label: "Warehouse", sortable: true },
     { id: "bin_location", label: "Bin Location", sortable: true },
+    { id: "stock", label: "Stock", sortable: true },
   ];
 
   useEffect(() => {
