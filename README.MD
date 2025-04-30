@@ -1,4 +1,4 @@
-**Structure of the repository:**
+**Structure of the repository for the Software Engineering:**
 
 ```
     └── 📁documents                     -> Contatins importatnt documents related to submissions
